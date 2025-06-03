@@ -1,19 +1,10 @@
 import React, { useRef } from "react";
 import Image from "next/image";
+import { FormDataType } from "@/types/formData";
 
 type Props = {
-  formData: {
-    github: string;
-    linkedin: string;
-    photoUrl: string;
-  };
-  setFormData: React.Dispatch<
-    React.SetStateAction<{
-      github: string;
-      linkedin: string;
-      photoUrl: string;
-    }>
-  >;
+  formData: FormDataType;
+  setFormData: React.Dispatch<React.SetStateAction<FormDataType>>;
 };
 
 export default function StepSocials({ formData, setFormData }: Props) {
@@ -21,7 +12,7 @@ export default function StepSocials({ formData, setFormData }: Props) {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
+    setFormData((prev: FormDataType) => ({
       ...prev,
       [name]: value,
     }));
@@ -33,7 +24,7 @@ export default function StepSocials({ formData, setFormData }: Props) {
 
     const reader = new FileReader();
     reader.onloadend = () => {
-      setFormData((prev) => ({
+      setFormData((prev: FormDataType) => ({
         ...prev,
         photoUrl: reader.result as string,
       }));

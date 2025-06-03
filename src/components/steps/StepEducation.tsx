@@ -1,22 +1,15 @@
 import React from "react";
+import { FormDataType } from "@/types/formData";
 
 type Props = {
-  formData: {
-    university: string;
-    studentId: string;
-  };
-  setFormData: React.Dispatch<
-    React.SetStateAction<{
-      university: string;
-      studentId: string;
-    }>
-  >;
+  formData: FormDataType;
+  setFormData: React.Dispatch<React.SetStateAction<FormDataType>>;
 };
 
 export default function StepEducation({ formData, setFormData }: Props) {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData((prev: {university: string, studentId: string}) => ({
+    setFormData((prev: FormDataType) => ({
       ...prev,
       [name]: value,
     }));

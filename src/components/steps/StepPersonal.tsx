@@ -1,26 +1,15 @@
 import React from "react";
+import { FormDataType } from "@/types/formData";
 
 type Props = {
-  formData: {
-    name: string;
-    title: string;
-    email: string;
-    phone: string;
-  };
-  setFormData: React.Dispatch<
-    React.SetStateAction<{
-      name: string;
-      title: string;
-      email: string;
-      phone: string;
-    }>
-  >;
+  formData: FormDataType;
+  setFormData: React.Dispatch<React.SetStateAction<FormDataType>>;
 };
 
 export default function StepPersonal({ formData, setFormData }: Props) {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData((prev: {name: string, title: string, email: string, phone: string}) => ({
+    setFormData((prev: FormDataType) => ({
       ...prev,
       [name]: value,
     }));

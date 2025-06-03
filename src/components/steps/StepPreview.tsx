@@ -1,32 +1,11 @@
 import React, { useRef } from "react";
 import Image from "next/image";
+import { FormDataType } from "@/types/formData";
 
 
 type Props = {
-  formData: {
-    name: string;
-    title: string;
-    email: string;
-    phone: string;
-    university: string;
-    studentId: string;
-    github: string;
-    linkedin: string;
-    photoUrl: string;
-  };
-  setFormData: React.Dispatch<
-    React.SetStateAction<{
-      name: string;
-      title: string;
-      email: string;
-      phone: string;
-      university: string;
-      studentId: string;
-      github: string;
-      linkedin: string;
-      photoUrl: string;
-    }>
-  >;
+  formData: FormDataType;
+  setFormData: React.Dispatch<React.SetStateAction<FormDataType>>;
 };
 
 export default function StepPreview({ formData }: Props) {
