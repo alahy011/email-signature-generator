@@ -1,6 +1,6 @@
 import { useState } from "react";
 import StepPersonal from "./steps/StepPersonal";
-import StepEducation from "./steps/StepEduction";
+import StepEducation from "./steps/StepEducation";
 import StepSocials from "./steps/StepSocials";
 import StepPreview from "./steps/StepPreview";
 
