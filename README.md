@@ -50,7 +50,7 @@ src/
 
 ## 🌐 Live Demo
 
-[https://email-signature.vercel.app](https://email-signature.vercel.app) *(once deployed)*
+WIll be available soon.
 
 ## 🙌 Contributing
 
