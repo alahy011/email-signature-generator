@@ -1,5 +1,3 @@
-// email-signature-generator/README.md
-
 # 📬 Email Signature Generator (Open Source)
 
 A modern, open-source, and 100% free web app to generate professional email signatures — perfect for students, developers, freelancers, and professionals. Live preview, export options, photo support, and regional legal disclaimers included.
