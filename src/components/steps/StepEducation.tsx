@@ -16,7 +16,7 @@ type Props = {
 export default function StepEducation({ formData, setFormData }: Props) {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData((prev: any) => ({
+    setFormData((prev: {university: string, studentId: string}) => ({
       ...prev,
       [name]: value,
     }));

@@ -20,7 +20,7 @@ type Props = {
 export default function StepPersonal({ formData, setFormData }: Props) {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData((prev: any) => ({
+    setFormData((prev: {name: string, title: string, email: string, phone: string}) => ({
       ...prev,
       [name]: value,
     }));
