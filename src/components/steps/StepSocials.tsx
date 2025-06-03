@@ -6,7 +6,13 @@ type Props = {
     linkedin: string;
     photoUrl: string;
   };
-  setFormData: React.Dispatch<React.SetStateAction<any>>;
+  setFormData: React.Dispatch<
+    React.SetStateAction<{
+      github: string;
+      linkedin: string;
+      photoUrl: string;
+    }>
+  >;
 };
 
 export default function StepSocials({ formData, setFormData }: Props) {

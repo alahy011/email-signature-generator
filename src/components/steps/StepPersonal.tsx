@@ -7,7 +7,14 @@ type Props = {
     email: string;
     phone: string;
   };
-  setFormData: React.Dispatch<React.SetStateAction<any>>;
+  setFormData: React.Dispatch<
+    React.SetStateAction<{
+      name: string;
+      title: string;
+      email: string;
+      phone: string;
+    }>
+  >;
 };
 
 export default function StepPersonal({ formData, setFormData }: Props) {

@@ -1,4 +1,6 @@
 import React, { useRef } from "react";
+import Image from "next/image";
+
 
 type Props = {
   formData: {
@@ -12,7 +14,19 @@ type Props = {
     linkedin: string;
     photoUrl: string;
   };
-  setFormData: React.Dispatch<React.SetStateAction<any>>;
+  setFormData: React.Dispatch<
+    React.SetStateAction<{
+      name: string;
+      title: string;
+      email: string;
+      phone: string;
+      university: string;
+      studentId: string;
+      github: string;
+      linkedin: string;
+      photoUrl: string;
+    }>
+  >;
 };
 
 export default function StepPreview({ formData }: Props) {
@@ -43,7 +57,13 @@ export default function StepPreview({ formData }: Props) {
 
   const handleCopy = async () => {
     if (previewRef.current) {
-      await navigator.clipboard.writeText(previewRef.current.innerHTML);
+      const htmlContent = previewRef.current.innerHTML;
+
+      await navigator.clipboard.write([
+        new ClipboardItem({
+          "text/html": new Blob([htmlContent], {type: "text/html"}),
+        }),
+      ]);
       alert("Signature copied to clipboard!");
     }
   };
@@ -56,12 +76,12 @@ export default function StepPreview({ formData }: Props) {
             <tr>
               {photoUrl && (
                 <td style={{ verticalAlign: "top", paddingRight: "15px" }}>
-                  <img
-                    src={photoUrl}
-                    alt="Profile"
-                    width="100"
-                    height="100"
-                    style={{ borderRadius: "50%", border: "2px solid #ccc" }}
+                  <Image 
+                    src={formData.photoUrl}
+                    alt="preview"
+                    width={80}
+                    height={80}
+                    className="rounded-full mt-4 object-cover border"
                   />
                 </td>
               )}

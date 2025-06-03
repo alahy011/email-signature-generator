@@ -5,7 +5,12 @@ type Props = {
     university: string;
     studentId: string;
   };
-  setFormData: React.Dispatch<React.SetStateAction<any>>;
+  setFormData: React.Dispatch<
+    React.SetStateAction<{
+      university: string;
+      studentId: string;
+    }>
+  >;
 };
 
 export default function StepEducation({ formData, setFormData }: Props) {
