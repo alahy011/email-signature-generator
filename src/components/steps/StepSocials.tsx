@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import Image from "next/image";
 
 type Props = {
   formData: {
@@ -85,7 +86,7 @@ export default function StepSocials({ formData, setFormData }: Props) {
         </button>
 
         {formData.photoUrl && (
-          <img
+          <Image
             src={formData.photoUrl}
             alt="Preview"
             className="mt-4 rounded-full w-20 h-20 object-cover border"
