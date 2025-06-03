@@ -26,7 +26,7 @@ export default function StepEducation({ formData, setFormData }: Props) {
           name="university"
           value={formData.university}
           onChange={handleChange}
-          placeholder="University of Tech"
+          placeholder="Your University Name"
           className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
         />
       </div>

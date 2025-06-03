@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 
 type Props = {
   formData: {
@@ -10,12 +10,28 @@ type Props = {
 };
 
 export default function StepSocials({ formData, setFormData }: Props) {
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData((prev: any) => ({
+    setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setFormData((prev) => ({
+        ...prev,
+        photoUrl: reader.result as string,
+      }));
+    };
+    reader.readAsDataURL(file);
   };
 
   return (
@@ -45,15 +61,30 @@ export default function StepSocials({ formData, setFormData }: Props) {
       </div>
 
       <div>
-        <label className="text-sm font-medium text-gray-700">Profile Photo URL</label>
+        <label className="text-sm font-medium text-gray-700 block mb-1">Profile Photo</label>
         <input
-          type="text"
-          name="photoUrl"
-          value={formData.photoUrl}
-          onChange={handleChange}
-          placeholder="https://yourhost.com/photo.jpg"
-          className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+          type="file"
+          accept="image/*"
+          ref={fileInputRef}
+          onChange={handleFileChange}
+          className="hidden"
         />
+
+        <button
+          type="button"
+          onClick={() => fileInputRef.current?.click()}
+          className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 text-sm"
+        >
+          Choose Profile Photo
+        </button>
+
+        {formData.photoUrl && (
+          <img
+            src={formData.photoUrl}
+            alt="Preview"
+            className="mt-4 rounded-full w-20 h-20 object-cover border"
+          />
+        )}
       </div>
     </div>
   );
