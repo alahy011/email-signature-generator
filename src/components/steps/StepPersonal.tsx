@@ -28,7 +28,7 @@ export default function StepPersonal({ formData, setFormData }: Props) {
           name="name"
           value={formData.name}
           onChange={handleChange}
-          placeholder="Hamid Reza"
+          placeholder="Write your full name"
           className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
         />
       </div>
@@ -40,7 +40,7 @@ export default function StepPersonal({ formData, setFormData }: Props) {
           name="title"
           value={formData.title}
           onChange={handleChange}
-          placeholder="IT Student | Aspiring Software Developer"
+          placeholder="Your Position (Student)"
           className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
         />
       </div>
